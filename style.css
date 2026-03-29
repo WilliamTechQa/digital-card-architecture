@@ -11,7 +11,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #1d5697;
+    background-color: #10437c;
     background-image: 
         linear-gradient(135deg, rgba(255,255,255,0.03) 1px, transparent 1px),
         linear-gradient(rgba(255,255,255,0.04) 1.5px, transparent 1.5px),
@@ -29,7 +29,7 @@ body {
     padding: 40px 20px; 
 }
 
-/* O CARTÃO */
+/* O CARTÃO (FORMATO ORIGINAL) */
 .card {
     width: 90%;
     max-width: 550px;
@@ -45,6 +45,7 @@ body {
     justify-content: center;
     align-items: center;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    overflow: hidden; /* Garante que nada saia das bordas arredondadas */
 }
 
 /* MOLDURA BRONZE */
@@ -118,12 +119,12 @@ body {
     background: white;
 }
 
-/* BLOCO DE CONTATO (FIXO - SEM PULAR) */
+/* BLOCO DE CONTATO */
 .contact-info-block {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2px; /* Espaço fixo entre e-mail e Whats */
+    gap: 2px;
 }
 
 .link-contato {
@@ -147,7 +148,6 @@ body {
     width: 18px;
     height: 18px;
     fill: #0da545 !important;
-    /* A cor do ícone no verso segue a cor do texto */
 }
 
 /* BOTÃO FLUTUANTE */
@@ -175,12 +175,70 @@ body {
 
 .whatsapp-float:hover {
     transform: scale(1.1);
-    background-color: #8b6d59; 
+    background-color: #0da545 ; 
+    
 }
 
-/* RESPONSIVIDADE */
+/* ============================================================
+   RESPONSIVIDADE - MANTENDO O FORMATO HORIZONTAL
+   ============================================================ */
 @media (max-width: 600px) {
-    .card { width: 92vw; min-height: 280px; }
-    .name { font-size: 24px; }
-    .link-contato { font-size: 16px; }
+    .card-container {
+        padding: 20px 10px;
+        gap: 30px; 
+    }
+
+    .card { 
+        width: 95vw; /* O cartão encolhe conforme a largura da tela */
+        min-height: auto; 
+        aspect-ratio: 1.7 / 1; /* FORÇA manter o formato horizontal original */
+        padding: 15px; 
+    }
+
+    /* Reduzindo o conteúdo proporcionalmente para caber no formato horizontal */
+    .logo-img {
+        width: 22vw; 
+        max-width: 110px;
+        margin-bottom: 10px;
+    }
+
+    .name { 
+        font-size: 5.5vw; 
+    }
+
+    .specialties {
+        font-size: 2.5vw; 
+        letter-spacing: 1px;
+        padding-top: 8px;
+        width: 95%;
+    }
+
+    .logo-verso {
+        width: 10vw;
+        max-width: 50px;
+        margin-bottom: 5px;
+    }
+
+    .qrcode-img {
+        width: 28vw; 
+        height: 28vw;
+        max-width: 130px;
+        max-height: 130px;
+    }
+
+    .link-contato { 
+        font-size: 3.5vw; 
+    }
+
+    .whatsapp-icon {
+        width: 3.5vw;
+        height: 3.5vw;
+    }
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
 }
